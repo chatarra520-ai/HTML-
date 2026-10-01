@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. Preparamos las conexiones rápido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- 2. Traemos las fuentes (el enlace que pusiste en la pregunta anterior) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:...&family=Manrope:...&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        * {
+            font-family: "Poppins", sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0e1538;
+        }
+
+        .box {
+            width: 300px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box h1 {
+            color: rgb(226, 226, 226);
+            text-shadow: 2px 2px black;
+            font-size: 40px;
+            letter-spacing: 2px;
+            z-index: 2;
+        }
+
+        .box::before {
+            position: absolute;
+            content: "";
+            width: 150px;
+            height: 140%;
+            background: linear-gradient(#00ccff, #df00ff);
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box::after {
+            position: absolute;
+            content: '';
+            background-color: #0e1538;
+            inset: 5px;
+            border-radius: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>CSS</h1>
+    </div>
+</body>
+<script src="js/js.js"></script>
+
+</html>

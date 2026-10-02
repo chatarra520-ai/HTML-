@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Mis trabajos</title>
+</head>
+<body>
+    <h1>Mis trabajos</h1>
+    <ul id="lista"></ul>
+
+    <script>
+        fetch("trabajos.json")
+            .then(r => r.json())
+            .then(trabajos => {
+                const lista = document.getElementById("lista");
+                trabajos.forEach(t => {
+                    const li = document.createElement("li");
+                    const a = document.createElement("a");
+                    a.href = t.ruta;
+                    a.textContent = t.titulo;
+                    li.appendChild(a);
+                    lista.appendChild(li);
+                });
+            })
+            .catch(() => {
+                document.getElementById("lista").textContent = "No se pudo cargar trabajos.json";
+            });
+    </script>
+</body>
+</html>

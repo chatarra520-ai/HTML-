@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="utf-8">
+    <title>HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. Preparamos las conexiones rápido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- 2. Traemos las fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:...&family=Manrope:...&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: blue;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            width: 100%;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .split-text {
+            position: relative;
+            width: min(90vw, 600px);
+            height: clamp(70px, 14vw, 120px);
+            cursor: pointer;
+        }
+
+        .split-text .top,
+        .split-text .bottom {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(128, 255, 0);
+            font-size: clamp(36px, 10vw, 82px);
+            font-weight: 900;
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+        }
+
+        .split-text .top {
+            clip-path: inset(0 0 50% 0);
+        }
+
+        .split-text .bottom {
+            clip-path: inset(50% 0 0 0);
+        }
+
+        .split-text .middle {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(241, 248, 241);
+            font-size: clamp(16px, 4vw, 28px);
+            font-weight: 800;
+            letter-spacing: 0.35em;
+            opacity: 0;
+            transform: scale(0.7);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .split-text:hover .top {
+            transform: translateY(-22px);
+        }
+
+        .split-text:hover .bottom {
+            transform: translateY(22px);
+        }
+
+        .split-text:hover .middle {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="split-text" data-text="CREATIVE">
+            <span class="top">CREATIVE</span>
+            <span class="bottom">CREATIVE</span>
+            <span class="middle">DESIGN</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

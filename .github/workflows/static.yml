@@ -33,6 +33,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Generar trabajos.json
+        run: |
+          find . -mindepth 2 -name index.html -not -path "./.git/*" \
+            | sed 's|^\./||; s|index.html$||' \
+            | jq -R -s -c 'split("\n")[:-1] | map({titulo: ., ruta: .})' > trabajos.json
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

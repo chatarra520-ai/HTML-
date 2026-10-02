@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>:has es un selector que no perdona</title>
+
+    <!-- Conexión anticipada con Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes: Fraunces y Manrope -->
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&family=Manrope:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --cbgp: #d9d9d9;
+            --cbgc: #ffffff;
+            --ctxtp: #2c2c2c;
+
+            font-size: 100%;
+            --texto-base: 1rem;
+            --texto-grande: 1.5rem;
+            --texto-titulo: 1.9rem;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background-color: var(--cbgp);
+            font-family: 'Fraunces', serif;
+            font-size: var(--texto-base);
+        }
+
+        .contenedor {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagina {
+            width: 100%;
+            max-width: 210mm;
+            box-sizing: border-box;
+            padding: 1.5rem;
+            background-color: var(--cbgc);
+        }
+
+        .title {
+            font-size: var(--texto-titulo);
+            text-align: center;
+            padding: 10px 0 35px 0;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .ventajas {
+
+            font-size: 1rem;
+            color: #333;
+            font-size: var(--texto-grande);
+        }
+
+        pre {
+            border: 1px solid #acacac;
+            padding: 1rem;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        code {
+            font-family: monospace;
+            color: #2b2b2b;
+            /* texto normal: llaves, palabras como solid/tomato */
+        }
+
+        .sel {
+            color: #c41a3c;
+        }
+
+        /* selector: .tarjeta, :has, img */
+        .prop {
+            color: #2b2b2b;
+        }
+
+        /* propiedad: border */
+        .num {
+            color: #1a6fd1;
+        }
+
+        /* número: 2 */
+        .unit {
+            color: #9b2fc9;
+        }
+
+        /* unidad: px */
+        .val {
+            color: #2b2b2b;
+        }
+
+        /* valores: solid, tomato */
+        .com {
+            color: #6a737d;
+            font-style: italic;
+        }
+
+        /* comentario */
+
+        .resaltado {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+            background: #eef0f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #dcdfe3;
+        }
+
+
+
+        .fila {
+            display: flex;
+            flex-direction: row;
+            /* es el valor por defecto, pero lo dejo explícito */
+            gap: 20px;
+        }
+
+        .fila2 {
+            display: flex;
+            flex-direction: row;
+            /* es el valor por defecto, pero lo dejo explícito */
+            gap: 20px;
+            color: red;
+        }
+
+        .fila2:has(.caja) {
+            color: green;
+        }
+
+        .caja {
+            flex: 1;
+            /* cada caja ocupa el mismo ancho */
+            padding: 20px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <main class="pagina">
+            <h1 class="title">:has es un selector que no perdona</h1>
+
+            <p>
+                <span class="resaltado">:has</span> significa "que tenga dentro". Es un selector de CSS que elige
+                un elemento según lo que contiene.
+            </p>
+
+            <pre><code><span class="sel">.tarjeta:has(img)</span> {
+    <span class="prop">border</span>: <span class="num">2</span><span class="unit">px</span> <span class="val">solid</span> <span class="val">tomato</span>;
+}</code></pre>
+
+            <p>
+                Se lee así: "elige las <span class="resaltado">.tarjeta</span> <strong>que tengan</strong> un
+                <span class="resaltado">img</span> dentro". Solo la primera recibe el borde.
+            </p>
+            Sin:has
+            <div class="fila">
+                <div class="caja">1</div>
+                <div class="caja">2</div>
+                <div class="caja">3</div>
+
+            </div>
+
+            <pre><code><span class="sel">.fila2</span> {
+    <span class="prop">display</span>: <span class="val">flex</span>;
+    <span class="prop">flex-direction</span>: <span class="val">row</span>;
+    <span class="com">/* es el valor por defecto, pero lo dejo explícito */</span>
+    <span class="prop">gap</span>: <span class="num">20</span><span class="unit">px</span>;
+    <span class="prop">color</span>: <span class="val">red</span>;
+}</code></pre>
+
+            Con:has
+            <div class="fila2">
+                <div class="caja">1</div>
+                <div class="caja">2</div>
+                <div class="caja">3</div>
+
+            </div>
+
+            <pre><code><span class="sel">.fila2</span> {
+    <span class="prop">display</span>: <span class="val">flex</span>;
+    <span class="prop">flex-direction</span>: <span class="val">row</span>;
+    <span class="com">/* es el valor por defecto, pero lo dejo explícito */</span>
+    <span class="prop">gap</span>: <span class="num">20</span><span class="unit">px</span>;
+    <span class="prop">color</span>: <span class="val">red</span>;
+}
+
+<span class="sel">.fila2:has(.caja)</span> {
+    <span class="prop">color</span>: <span class="val">green</span>;
+}</code></pre>
+
+            <div class="ventajas">Ventajas</div>
+            Reemplaza JavaScript en muchos casos. Antes, "estilar un contenedor según lo que tiene dentro" exigía código
+            JS que
+            detectara el contenido y añadiera una clase. Ahora es una línea de CSS.
+        </main>
+    </div>
+
+    <!-- Bootstrap JS con Popper incluido (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="js/js.js"></script> -->
+</body>
+
+</html>

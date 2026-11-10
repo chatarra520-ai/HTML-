@@ -84,19 +84,29 @@
     }
 
     ul {
-        list-style: none;
-        padding: 0;
-    }
+    list-style: none;
+    padding: 0;
+}
 
-    li {
-        border-bottom: 1px solid var(--blanco);
-        content: "➜";
-        margin-right: 10px;
-    }
+li {
+    position: relative;
+    padding: 12px 12px 12px 30px;
+    border-bottom: 1px solid #ccc;
+}
 
-    li:hover {
-        background-color: #333;
-    }
+li::before {
+    content: "➜";
+    position: absolute;
+    left: 5px;
+    color: red;
+    font-size: 16px;
+}
+
+li:hover::before {
+    color: white;
+}
+
+
 </style>
 
 <body>

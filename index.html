@@ -93,16 +93,19 @@
     li {
         position: relative;
         padding: 12px 12px 12px 30px;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid var(--border)
     }
 
     li::before {
         content: "➜";
         position: absolute;
+        color: #ffffff;
         left: 5px;
     }
 
-   
+    li:hover::before {
+        color: #A7AFDA;
+    }
 </style>
 
 <body>

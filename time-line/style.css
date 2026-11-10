@@ -1,0 +1,68 @@
+/* style.css */
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 2rem 1rem;
+    background: #f5f5f7;
+    color: #222;
+}
+
+.timeline-grid {
+    position: relative;
+    max-width: 800px;
+    margin-inline: auto;
+
+    /* Paso 1: dos columnas iguales */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Línea central */
+.timeline-grid::before {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: 2px;
+    background: #bbb;
+    transform: translateX(-50%);
+}
+
+.timeline-grid-items {
+    /* Paso 2: colocación automática */
+    --side: mod(sibling-index(), 2);
+    /* 1 = izquierda, 0 = derecha */
+    --column: calc(2 - var(--side));
+    /* columna 1 o 2 */
+    grid-area: sibling-index() / var(--column);
+
+    position: relative;
+    padding: 1rem 1.5rem;
+    margin-block: .5rem;
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: 0 2px 6px rgb(0 0 0 / .1);
+}
+
+/* Punto sobre la línea central, también sin :nth-child() */
+.timeline-grid-items::after {
+    content: "";
+    position: absolute;
+    top: 1.2rem;
+    left: calc(100% * var(--side));
+    /* borde derecho si va a la izquierda, borde izquierdo si va a la derecha */
+    width: 14px;
+    height: 14px;
+    background: #4f46e5;
+    border: 3px solid #f5f5f7;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-grid-items h3 {
+    margin: 0 0 .25rem;
+}
+
+.timeline-grid-items p {
+    margin: 0;
+}

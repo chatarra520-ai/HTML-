@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dimensiones web comunes y anchos de diseño recomendados para 2026</title>
+<meta name="description" content="Resoluciones de pantalla más comunes y anchos de diseño recomendados por tipo de dispositivo en 2026.">
+<style>
+  :root {
+    --fondo: #ffffff;
+    --texto: #1f2430;
+    --texto-suave: #4a5163;
+    --primario: #2020b0;
+    --primario-oscuro: #14146e;
+    --encabezado-fondo: #2020b0;
+    --encabezado-texto: #ffffff;
+    --fila-clara: #ffffff;
+    --fila-alterna: #f4f5fb;
+    --fila-destacada: #fff7e0;
+    --borde: #2020b0;
+    --enlace: #2a2ac0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fondo: #12131a;
+      --texto: #e8e9f0;
+      --texto-suave: #b4b8c8;
+      --primario: #9da0ff;
+      --primario-oscuro: #c8caff;
+      --encabezado-fondo: #2a2a8f;
+      --encabezado-texto: #ffffff;
+      --fila-clara: #12131a;
+      --fila-alterna: #1d2030;
+      --fila-destacada: #2e2a16;
+      --borde: #4a4ab8;
+      --enlace: #9da0ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: 1rem; }
+  body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+  }
+  .resumen strong { color: var(--primario-oscuro); }
+  .tabla-contenedor {
+    overflow-x: auto;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    margin: 1.5rem 0 0.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 520px;
+  }
+  caption {
+    caption-side: bottom;
+    text-align: left;
+    padding: 0.6rem 0.25rem 0;
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+  }
+  th, td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border: 1px solid var(--borde);
+  }
+  thead th {
+    background: var(--encabezado-fondo);
+    color: var(--encabezado-texto);
+    font-weight: 700;
+  }
+  tbody th {
+    color: var(--enlace);
+    font-weight: 600;
+  }
+  tbody tr:nth-child(odd) { background: var(--fila-clara); }
+  tbody tr:nth-child(even) { background: var(--fila-alterna); }
+  tbody tr:hover { background: var(--fila-destacada); }
+  .nota { font-style: italic; color: var(--texto-suave); margin-top: 1.75rem; }
+  a { color: var(--enlace); font-weight: 600; }
+  a:focus-visible { outline: 3px solid var(--primario); outline-offset: 2px; }
+  @media (max-width: 480px) {
+    th, td { padding: 0.65rem 0.7rem; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <p class="resumen">
+    <strong>El ancho estándar de un sitio web en 2026 es de 1366–1440 px en escritorio, con el contenido principal dentro de un contenedor de ~1140–1200 px.</strong>
+    Las resoluciones de pantalla más comunes son 1920×1080 (escritorio), 768×1024 (tableta) y 360×800 (móvil); diseña de forma responsiva para que un único diseño se adapte a las tres.
+  </p>
+
+  <div class="tabla-contenedor">
+    <table>
+      <caption>Dimensiones web comunes y anchos de diseño recomendados para 2026.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Tipo de dispositivo</th>
+          <th scope="col">Resolución de pantalla (px)</th>
+          <th scope="col">Ancho de diseño recomendado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Escritorio (grande)</th><td>1920 × 1080</td><td>1440–1600 px</td></tr>
+        <tr><th scope="row">Escritorio (estándar)</th><td>1366 × 768</td><td>1140–1366 px</td></tr>
+        <tr><th scope="row">Portátil</th><td>1440 × 900</td><td>1140–1280 px</td></tr>
+        <tr><th scope="row">Tableta (horizontal)</th><td>1024 × 768</td><td>960–1024 px</td></tr>
+        <tr><th scope="row">Tableta (vertical)</th><td>768 × 1024</td><td>720–768 px</td></tr>
+        <tr><th scope="row">Móvil (grande)</th><td>428 × 926</td><td>360–430 px</td></tr>
+        <tr><th scope="row">Móvil (estándar)</th><td>360 × 800</td><td>320–375 px</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="nota">
+    La popularidad de las resoluciones cambia con el tiempo: consulta el uso actual en las
+    <a href="https://gs.statcounter.com/screen-resolution-stats" target="_blank" rel="noopener">estadísticas globales de resolución de pantalla de StatCounter</a>
+    antes de finalizar un diseño.
+  </p>
+
+  <p>
+    Los requisitos de diseño web cambian a medida que las personas interactúan con los sitios en distintos dispositivos, desde pantallas grandes hasta móviles. Elegir los tamaños de sitio adecuados permite presentar el contenido con calidad, ofrecer una navegación sencilla y lograr una carga rápida.
+  </p>
+</main>
+</body>
+</html>
 

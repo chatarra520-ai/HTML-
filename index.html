@@ -2,140 +2,208 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <title>Mis trabajos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Funciones profesionales para tomar fotos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #212121;
+            color: #e5e5e5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            padding: 20px 16px 40px 16px;
+            max-width: 480px;
+            margin: 0 auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            text-align: center;
+            padding: 24px 8px 28px 8px;
+            border-bottom: 1px solid #222222;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 1.45rem;
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #9e9e9e;
+            font-size: 0.9rem;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        section {
+            background-color: #1f1f1f;
+            border: 1px solid #242424;
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            background-color: #242424;
+            color: #ffffff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 7px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        section p {
+            color: #b0b0b0;
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+    </style>
 </head>
-<style>
-    :root {
-        --fondo: #12131A;
-        --title: #1D2030;
-        --blanco: #ffffff;
-        --contenido: #20243E;
-        --border: #5C76FF;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: var(--fondo);
-        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    }
-
-    p {
-        font-size: 20px;
-    }
-
-    h1 {
-        text-align: center;
-        color: var(--blanco);
-        line-height: 2;
-    }
-
-    .contenedor {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        width: 50vw;
-        height: 50vh;
-    }
-
-    .fila {
-        padding: 10px 0 10px 0;
-        border: 1px solid var(--border);
-    }
-
-    .fila-1 {
-        background-color: var(--title);
-        padding: 0px 30px 0px 30px;
-    }
-
-    .fila-2 {
-        background-color: var(--contenido);
-        padding: 0px 30px 0px 30px;
-        color: var(--txt-title);
-        line-height: 3;
-
-    }
-
-    a:link {
-        color: var(--blanco);
-        text-decoration: none;
-    }
-
-    a:visited {
-        color: var(--blanco);
-        text-decoration: none;
-    }
-
-    a:hover {
-
-        color: #A7AFDA;
-        text-decoration: none;
-    }
-
-    a:active {
-        color: var(--blanco);
-        text-decoration: none;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    li {
-        position: relative;
-        padding: 12px 12px 12px 30px;
-        border-bottom: 1px solid var(--border)
-    }
-
-    li::before {
-        content: "➜";
-        position: absolute;
-        color: #ffffff;
-        left: 5px;
-    }
-
-    li:hover::before {
-        color: #A7AFDA;
-    }
-</style>
 
 <body>
-    <div class="contenedor">
-        <div class="fila fila-1">
-            <h1>Mis trabajos</h1>
-        </div>
 
-        <div class="fila fila-2">
-            <ul id="lista"></ul>
-        </div>
-    </div>
-    <script>
-        fetch("trabajos.json")
-            .then(r => r.json())
-            .then(trabajos => {
-                const lista = document.getElementById("lista");
-                trabajos.forEach(t => {
-                    const li = document.createElement("li");
-                    const a = document.createElement("a");
-                    a.href = t.ruta;
-                    a.textContent = t.titulo;
-                    li.appendChild(a);
-                    lista.appendChild(li);
-                });
-            })
-            .catch(() => {
-                document.getElementById("lista").textContent = "No se pudo cargar trabajos.json";
-            });
-    </script>
+    <header>
+        <h1>Funciones profesionales para tomar fotos</h1>
+        <p>Tenga un control más creativo sobre sus fotos y videos</p>
+    </header>
+
+    <main>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">◎</span>
+                <h2>Modos de medición</h2>
+            </div>
+            <p>La medición media tiene en cuenta todas las áreas de tu imagen, y funciona mejor para escenas con
+                iluminación uniforme. La medición ponderada al centro se centra principalmente en el área central del
+                cuadro y tiene en cuenta el brillo del área circundante, que es adecuada para fotografiar sujetos en el
+                centro del cuadro. La medición puntual solo cubre el área en un punto, lo que le brinda un control
+                preciso sobre la exposición.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">[ ]</span>
+                <h2>Pico de enfoque</h2>
+            </div>
+            <p>Cuando enfoca manualmente, use el pico de enfoque para colocar un resaltado rojo en el área enfocada.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">///</span>
+                <h2>Verificación de la exposición</h2>
+            </div>
+            <p>Resalte las áreas subexpuestas en azul y las áreas superpuestas en rojo para poder ajustar la exposición
+                correctamente.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">R</span>
+                <h2>Formato RAW</h2>
+            </div>
+            <p>Este formato de imagen captura todos los datos de imagen grabados por el sensor cuando toma una foto. Los
+                datos sin comprimir le brindan más opciones en el procesamiento posterior.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">CO</span>
+                <h2>Enfoque separado y medición de exposición</h2>
+            </div>
+            <p>Puede arrastrar el anillo de exposición fuera del anillo de enfoque y ajustar los dos parámetros por
+                separado.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">WB</span>
+                <h2>Balance de blancos</h2>
+            </div>
+            <p>Además de los preajustes de balance de blancos (incandescente, luz diurna, fluorescente, nublado),
+                también puede establecer el balance de blancos en un valor personalizado dentro del rango de 2000-8000
+                Kelvin.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">F</span>
+                <h2>Enfocar</h2>
+            </div>
+            <p>Puede enfocar tanto manual como automáticamente. Cuanto mayor sea el valor de enfoque que seleccione en
+                el control deslizante, más lejos del objetivo estará el área enfocada.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">S</span>
+                <h2>Velocidad de obturación</h2>
+            </div>
+            <p>La velocidad de obturación automática está determinada por el medidor de luz de la cámara. Cuando
+                seleccione la velocidad de obturación manualmente, recuerde que cuanto más tiempo esté abierto el
+                obturador, más luz entrará en el sensor, lo que hará que su imagen sea más brillante.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">EV</span>
+                <h2>Compensación de exposición</h2>
+            </div>
+            <p>Esta característica le permite compensar la exposición cuando desea que su imagen sea más brillante o más
+                oscura de lo que sugiere el medidor.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">ISO</span>
+                <h2>Sensibilidad ISO</h2>
+            </div>
+            <p>Los valores ISO se pueden determinar automáticamente por el medidor de luz. También puede cambiar el
+                valor manualmente. Recuerde que un ISO más alto hace que su cámara sea más sensible a la luz, pero trae
+                más ruido digital a su imagen.</p>
+        </section>
+
+        <section>
+            <div class="card-header">
+                <span class="badge">LENTES</span>
+                <h2>Lentes</h2>
+            </div>
+            <p>Puede cambiar entre múltiples lentes disponibles: GRAN (lente gran angular) UG (lente ultra gran angular)
+                MACRO (lentes macro)</p>
+        </section>
+
+    </main>
+
 </body>
 
 </html>
